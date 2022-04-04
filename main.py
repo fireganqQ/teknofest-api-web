@@ -181,4 +181,4 @@ def error_handler(e):
 	return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["HANDLER"]}</pre>', 400
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
