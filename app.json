@@ -1,0 +1,23 @@
+{
+  "name": "Teknofest Meb DataBase Api Web",
+  "description": "Teknofest Projesi İçin Yazılmış DataBase Api.",
+  "repository": "https://github.com/fireganqQ/teknofest-api-web",
+  "logo": "",
+  "keywords": [],
+  "env": {
+     "auth_tokenList": {
+      "description": "Tüm Kayıt Edilecek Auth Token"
+    },
+    "school_codeList": {
+      "description": "Tüm Kayıt Edilecek School Code"
+    },
+    "authToken_schoolCode": {
+      "description": "Auth Tokenlerin Yetkilendirilecekleri School Code.(örn: 'asd':'123',...)"
+    }
+   },
+   "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
