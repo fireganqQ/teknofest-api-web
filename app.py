@@ -30,7 +30,7 @@ def class_read(auth_token, school_code: str, _class: str):
 	read = __db__.__sqlRead__()
 	if __search(str(_class).lower(), str(read).lower()):
 		a = str(__db__.__classRead__(str(_class).lower()))
-		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["READ"].format(a.replace("'", "\""))}</pre>';__db__.__close__()
+		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["READ"].format(a.replace("'", '"'))}</pre>';__db__.__close__()
 	return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["MAIN"]}</pre>';__db__.__close__()
 # ============== UPDATE_CLASS_DATA ================== #
 @app.route("/api/v1/<auth_token>/<school_code>/login/update/class_data/<_class>/<lessonId>/<day1>/<day2>/<day3>/<day4>/<day5>/<day1Teacher>/<day2Teacher>/<day3Teacher>/<day4Teacher>/<day5Teacher>/", methods=["GET"])
