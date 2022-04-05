@@ -27,7 +27,7 @@ error_text = {
 @app.route("/api/v1/<auth_token>/<school_code>/login/read/<_class>/", methods=["GET"])
 def class_read(auth_token, school_code: str, _class: str):
 	if auth_token not in auth_tokenList or school_code not in school_codeList:
-		if authToken_schoolCode[auth_token] == school_code:
+		if str(authToken_schoolCode[str(auth_token)]) == str(school_code):
 			pass
 		else:
 			return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["202"]}</pre>'
@@ -181,4 +181,4 @@ def error_handler(e):
 	return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["HANDLER"]}</pre>', 400
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=True)
