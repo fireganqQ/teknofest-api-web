@@ -22,8 +22,7 @@ error_text = {
 @app.route("/api/v1/<auth_token>/<school_code>/login/read/<_class>/", methods=["GET"])
 def class_read(auth_token, school_code: str, _class: str):
 	if auth_token not in auth_tokenList or school_code not in school_codeList:
-		if str(authToken_schoolCode[auth_token]) == str(school_code):
-			return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["202"]}</pre>'
+		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["202"]}</pre>'
 	__db__ = dataBase(school_code)
 	read = __db__.__sqlRead__()
 	if __search(str(_class).lower(), str(read).lower()):
