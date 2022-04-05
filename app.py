@@ -6,7 +6,7 @@ import sqlite3 as sql, os, json as __json
 
 auth_tokenList = os.getenv("auth_tokenList").replace(", ", " ").replace("  ", " ").split()
 school_codeList = os.getenv("school_codeList").replace(", ", " ").replace("  ", " ").split()
-authToken_schoolCode = __json.loads(os.getenv("authToken_schoolCode"))
+authToken_schoolCode = __json.loads("{"+str(os.getenv("authToken_schoolCode"))+"}")
 
 
 app = Flask(__name__)
