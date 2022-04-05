@@ -5,7 +5,7 @@ from re import search as __search
 import sqlite3 as sql, os, json as __json
 auth_tokenList = os.getenv("auth_tokenList").replace(", ", " ").replace("  ", " ").split()
 school_codeList = os.getenv("school_codeList").replace(", ", " ").replace("  ", " ").split()
-authToken_schoolCode = __json.loads(os.getenv("authToken_schoolCode"))
+authToken_schoolCode = __json.loads("{"+str(os.getenv("authToken_schoolCode").replace("'", "\""))+"}")
 app = Flask(__name__)
 error_text = {
 	"HANDLER": '{"ok":false,"code":404,"description":"Not Found Handler"}',
@@ -22,7 +22,7 @@ error_text = {
 @app.route("/api/v1/<auth_token>/<school_code>/login/read/<_class>/", methods=["GET"])
 def class_read(auth_token, school_code: str, _class: str):
 	if auth_token not in auth_tokenList or school_code not in school_codeList:
-		if authToken_schoolCode[auth_token] == school_code:
+		if str(authToken_schoolCode[auth_token]) == str(school_code):
 			pass
 		else:
 			return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["202"]}</pre>'
