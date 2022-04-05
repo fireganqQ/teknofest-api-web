@@ -23,8 +23,6 @@ error_text = {
 def class_read(auth_token, school_code: str, _class: str):
 	if auth_token not in auth_tokenList or school_code not in school_codeList:
 		if str(authToken_schoolCode[auth_token]) == str(school_code):
-			pass
-		else:
 			return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["202"]}</pre>'
 	__db__ = dataBase(school_code)
 	read = __db__.__sqlRead__()
