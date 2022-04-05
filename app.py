@@ -3,9 +3,12 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from db import dataBase
 from re import search as __search
 import sqlite3 as sql, os, json as __json
-auth_tokenList = os.getenv("auth_tokenList").replace(", ", " ").replace("  ", " ").split()
-school_codeList = os.getenv("school_codeList").replace(", ", " ").replace("  ", " ").split()
+auth_tokenList = (os.getenv("auth_tokenList").replace(", ", " ").replace("  ", " ")).split()
+school_codeList = (os.getenv("school_codeList").replace(", ", " ").replace("  ", " ")).split()
 authToken_schoolCode =   __json.loads(str(os.getenv("authToken_schoolCode").replace("'", "\"")))
+print(auth_tokenList)
+print(school_codeList)
+print(authToken_schoolCode)
 app = Flask(__name__)
 error_text = {
 	"HANDLER": '{"ok":false,"code":404,"description":"Not Found Handler"}',
