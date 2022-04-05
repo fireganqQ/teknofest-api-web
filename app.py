@@ -5,7 +5,7 @@ from re import search as __search
 import sqlite3 as sql, os, json as __json
 auth_tokenList = os.getenv("auth_tokenList").replace(", ", " ").replace("  ", " ").split()
 school_codeList = os.getenv("school_codeList").replace(", ", " ").replace("  ", " ").split()
-authToken_schoolCode = "asd"# __json.loads("{"+str(os.getenv("authToken_schoolCode").replace("'", "\""))+"}")
+authToken_schoolCode =   __json.loads(str(os.getenv("authToken_schoolCode").replace("'", "\"")))
 app = Flask(__name__)
 error_text = {
 	"HANDLER": '{"ok":false,"code":404,"description":"Not Found Handler"}',
