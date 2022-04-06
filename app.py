@@ -30,7 +30,7 @@ def class_read(auth_token, school_code: str, _class: str):
 	read = __db__.__sqlRead__()
 	if __search(str(_class).lower(), str(read).lower()):
 		try:
-			a = str(__db__.__classRead__(str(_class).lower())[0]).replace("'", '"').replace("(", "[").replace(")", "]")
+			a = str(__db__.__classRead__(str(_class).lower())).replace("'", '"').replace("(", "[").replace(")", "]")
 		except:
 			a = "[]"
 		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["READ"].format(a)}</pre>';__db__.__close__()
