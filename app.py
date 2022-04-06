@@ -59,7 +59,7 @@ def class_data(auth_token, school_code: str, _class:str, lessonId:str, day1:str,
 		if __search(str(lessonId), str(__db__.__data_query__(_class))):
 			return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["302"]}</pre>';__db__.__close__()
 		a = __db__.__Push__(_class, lessonId, day1, day2, day3, day4, day5, day1Teacher, day2Teacher, day3Teacher, day4Teacher, day5Teacher)
-		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["PUSH"]}</pre>';__db__.__close__()
+		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{a}</pre>';__db__.__close__()
 	else:
 		return f'<pre style="word-wrap: break-word; white-space: pre-wrap;">{error_text["MAIN"]}</pre>';__db__.__close__()
 	return __db__.__close__()
